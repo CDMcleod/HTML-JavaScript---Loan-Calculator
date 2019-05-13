@@ -1,0 +1,8 @@
+Project: Javascript Car Loan Calculator
+
+Information: 
+
+Simple HTML and JavaScript calculator that prompts user for 
+information regarding payment, cost, and loan percentage for 
+car loan. processes car loan payments and interest rate and
+returns information directly in users web browser.

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Chapter 6 Assignment 2</title>
+	
+	<script>
+		var vehicle_price=prompt("Please enter the price of the vehicle.","");
+		var down_payment=prompt("Please enter the down payemnt amount.","");
+		var annual_int_rate=prompt("Please enter the loan's annual interest rate (e.g. 7.5)","");
+		vehicle_price = parseFloat(vehicle_price);
+		down_payment = parseFloat(down_payment);
+		annual_int_rate = parseFloat(annual_int_rate);
+		var loan_amount = (vehicle_price - down_payment);
+		//loan_amount = loan_amount.toFixed(2);
+		var monthly_int_rate = (annual_int_rate / 1200);
+	
+		function calc_payment(num_months, monthly_int_rate, loan_amount){
+			var base = Math.pow(1 + monthly_int_rate, num_months);
+			var payment = (loan_amount * monthly_int_rate / (1 - (1 / base)));
+			
+			return payment.toFixed(2);
+		}
+		
+	</script>
+
+	<style>
+		body{background-color:tan}
+	</style>
+</head>
+<body>
+	
+	<h1><b>Loan Calculator</b></h1>
+	
+	<pre>
+	<script>
+	var nf = new Intl.NumberFormat();
+		document.write("Vehicle price: " + "$" + nf.format(vehicle_price) + "</br>");
+		document.write("Down payment: " + "$" + nf.format(down_payment) + "</br>");
+		document.write("Interest Rate: " + nf.format(annual_int_rate) + "%" + "</br>");
+		document.write("Loan Amount: " + "$" + nf.format(loan_amount) + "</br>");
+		document.write("# of Months		Payments/Month</br>");
+		for(num_months = 24; num_months < 61; num_months = num_months + 12) {
+			document.write(num_months + "			$" + nf.format(calc_payment(num_months, monthly_int_rate, loan_amount)) + "</br>");
+		}//end for loop
+
+	</script>
+	</pre>
+	
+</body>
+</html>
